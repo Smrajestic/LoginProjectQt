@@ -29,6 +29,7 @@ void MainWindow::on_LogIn_clicked()
         ui->Label->setText("Dobrodošli!");
         ui->UserEdit->clear();
         ui->PassEdit->clear();
+        ui->Label->
         }
     else
         msgBox.warning(this, tr("Warning!"), tr("Napačno uporabniško ime ali geslo!"));
@@ -49,4 +50,9 @@ void MainWindow::on_ReLog_clicked()
     ui->ReLog->hide();
     ui->Label->setText("");
     ui->label->hide();
+}
+
+void MainWindow::on_LogIn_toggled(bool checked)
+{
+    
 }

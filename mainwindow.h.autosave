@@ -23,6 +23,8 @@ private slots:
 
     void on_ReLog_clicked();
 
+    void on_LogIn_toggled(bool checked);
+    
 private:
     Ui::MainWindow *ui;
 };
