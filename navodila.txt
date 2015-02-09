@@ -1,0 +1,2 @@
+Naredi windows login formo za prijavo v program.
+Preverjanje uporabniškega imena in gesla.

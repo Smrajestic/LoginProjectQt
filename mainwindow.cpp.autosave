@@ -51,8 +51,3 @@ void MainWindow::on_ReLog_clicked()
     ui->Label->setText("");
     ui->label->hide();
 }
-
-void MainWindow::on_LogIn_toggled(bool checked)
-{
-    
-}
