@@ -2,6 +2,11 @@
 #include "ui_mainwindow.h"
 #include "QString"
 #include "QMessageBox"
+#include "QTextStream"
+#include "QFile"
+#include "QDebug"
+
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,8 +24,8 @@ int loggedin=0;
 
 void MainWindow::on_LogIn_clicked()
 {
-    QString user="test1", pass="Proba1.";
     QMessageBox msgBox;
+    QString user, pass;
     if(loggedin==0)
         {
         if(ui->UserEdit->text() == user && ui->PassEdit->text() == pass)
@@ -37,7 +42,6 @@ void MainWindow::on_LogIn_clicked()
         }
         else
             msgBox.warning(this, tr("Warning!"), tr("Napačno uporabniško ime ali geslo!"));
-
     }
     else
     {
@@ -65,9 +69,34 @@ void MainWindow::on_UserEdit_returnPressed()
 
 void MainWindow::on_pushButton_clicked()
 {
+    QString s;
     QMessageBox msgBox;
-    if(loggedin==1)
-        msgBox.warning(this,tr("Opomba"),tr("Uporabnik je "));
-    else
-        msgBox.warning(this,tr("Opomba"),tr("Uporabnik ni prijavljen"));
+        switch (loggedin) {
+        case 1:
+            s="Uporabnik je prijavljen";
+            break;
+        default:s="Uporabnik ni prijavljen";
+            break;
+        }
+        msgBox.warning(this, tr("Opomba"), s);
     }
+
+void MainWindow::on_Register_pressed()
+{
+    QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
+    QString strImena, strGesla;
+    strImena=ui->UserEdit->text();
+    strGesla=ui->PassEdit->text();
+
+   try {
+        dat.open(QIODevice::Append | QFile::Text);
+        QTextStream out(&dat);
+        out << strImena + "   " +strGesla + "\n";
+    }
+    catch(const exception& e) {
+        QMessageBox::critical(0,"Error",e.what());
+      //nekam zapišeš napako
+    };
+    dat.flush();
+    dat.close();
+}
