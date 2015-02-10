@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    ui->ReLog->hide();
 }
 void MainWindow::on_LogIn_clicked()
 {
@@ -48,5 +49,4 @@ void MainWindow::on_ReLog_clicked()
     ui->LogIn->show();
     ui->ReLog->hide();
     ui->Label->setText("");
-    ui->label->hide();
 }
