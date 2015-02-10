@@ -113,35 +113,11 @@
      <string>Type password here...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ReLog">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>220</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
-    </property>
-    <property name="text">
-     <string>ReLog</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="LogIn">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>290</y>
+      <y>240</y>
       <width>131</width>
       <height>41</height>
      </rect>
@@ -153,6 +129,19 @@
     </property>
     <property name="text">
      <string>Log In</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>310</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>msg</string>
     </property>
    </widget>
   </widget>

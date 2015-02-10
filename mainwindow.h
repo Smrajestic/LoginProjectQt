@@ -21,7 +21,9 @@ private slots:
 
     void on_PassEdit_returnPressed();
 
-    void on_ReLog_clicked();
+    void on_UserEdit_returnPressed();
+    
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
