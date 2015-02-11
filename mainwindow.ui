@@ -16,6 +16,9 @@
   <property name="windowTitle">
    <string>Login Project</string>
   </property>
+  <property name="windowOpacity">
+   <double>7.000000000000000</double>
+  </property>
   <property name="animated">
    <bool>true</bool>
   </property>
