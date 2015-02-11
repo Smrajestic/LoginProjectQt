@@ -22,10 +22,35 @@ MainWindow::~MainWindow()
 
 int loggedin=0;
 
+QString user="12345", pass="12345";
+QString strImena, strGesla;
+
+int getUser()
+{
+    QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
+    dat.open(QIODevice::ReadOnly | QFile::Text);
+    QTextStream in(&dat);
+    while (!in.atEnd()) {
+        user = in.readLine();
+}
+}
+
+int getPass()
+{
+    QFile dat2("C:/Users/Trinet/Documents/LoginProject/gesla.txt");
+    dat2.open(QIODevice::ReadOnly | QFile::Text);
+    QTextStream in(&dat2);
+    while (!in.atEnd()) {
+        pass = in.readLine();
+}
+}
+
+
 void MainWindow::on_LogIn_clicked()
 {
     QMessageBox msgBox;
-    QString user, pass;
+    getUser();
+    getPass();
     if(loggedin==0)
         {
         if(ui->UserEdit->text() == user && ui->PassEdit->text() == pass)
@@ -41,7 +66,10 @@ void MainWindow::on_LogIn_clicked()
             loggedin=1;
         }
         else
+            {
             msgBox.warning(this, tr("Warning!"), tr("Napačno uporabniško ime ali geslo!"));
+            QMessageBox::information(0,"Username - Password",user + " " + pass);
+        }
     }
     else
     {
@@ -66,7 +94,6 @@ void MainWindow::on_UserEdit_returnPressed()
     if(ui->UserEdit->text()=="")
         ui->PassEdit->clear();
 }
-
 void MainWindow::on_pushButton_clicked()
 {
     QString s;
@@ -83,20 +110,31 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_Register_pressed()
 {
-    QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
-    QString strImena, strGesla;
-    strImena=ui->UserEdit->text();
-    strGesla=ui->PassEdit->text();
+    if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
+        {
+        QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
+        QFile dat2("C:/Users/Trinet/Documents/LoginProject/gesla.txt");
+        strImena=ui->UserEdit->text();
+        strGesla=ui->PassEdit->text();
 
-   try {
-        dat.open(QIODevice::Append | QFile::Text);
-        QTextStream out(&dat);
-        out << strImena + "   " +strGesla + "\n";
+       try {
+            dat.open(QIODevice::Append | QFile::Text);
+            dat2.open(QIODevice::Append | QFile::Text);
+            QTextStream out(&dat);
+            out << strImena + "\n";
+            QTextStream out2(&dat2);
+            out2 << strGesla + "\n";
+        }
+        catch(const exception& e) {
+            QMessageBox::critical(0,"Error",e.what());
+        };
+        dat.flush();
+        dat.close();
+        dat2.close();
     }
-    catch(const exception& e) {
-        QMessageBox::critical(0,"Error",e.what());
-      //nekam zapišeš napako
-    };
-    dat.flush();
-    dat.close();
-}
+    else if(ui->UserEdit->text()=="")
+        QMessageBox::information(0,"Error","Za registriranje vpiši Uporabniško ime!");
+    else if(ui->UserEdit->text() == ui->PassEdit->text())
+        QMessageBox::information(0,"Error","Za registriranje uporabi različno Uporabniško ime, kot Geslo!");
+
+    }
