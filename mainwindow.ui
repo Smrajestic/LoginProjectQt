@@ -504,7 +504,7 @@
      </font>
     </property>
     <property name="text">
-     <string>PRAKSA</string>
+     <string>Qt Creator</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
