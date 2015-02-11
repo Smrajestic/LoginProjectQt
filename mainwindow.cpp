@@ -5,6 +5,8 @@
 #include "QTextStream"
 #include "QFile"
 #include "QDebug"
+#include "QDateTime"
+#include "QTimer"
 
 using namespace std;
 
@@ -13,6 +15,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QTimer *timer=new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(show_time()));
+    timer->start();
+}
+
+void MainWindow::show_time()
+{
+    QTime time=QTime::currentTime();
+    QString time_text=time.toString("hh : mm : ss");
+    ui->label->setText(time_text);
 }
 
 MainWindow::~MainWindow()
@@ -33,6 +45,7 @@ int getUser()
     while (!in.atEnd()) {
         user = in.readLine();
 }
+    return 0;
 }
 
 int getPass()
@@ -43,6 +56,7 @@ int getPass()
     while (!in.atEnd()) {
         pass = in.readLine();
 }
+    return 0;
 }
 
 

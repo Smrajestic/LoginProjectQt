@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>385</width>
-    <height>383</height>
+    <height>411</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -68,8 +68,8 @@
    <widget class="QLabel" name="Label">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>110</y>
+      <x>130</x>
+      <y>100</y>
       <width>131</width>
       <height>41</height>
      </rect>
@@ -81,6 +81,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="UserEdit">
@@ -186,6 +189,29 @@
     </property>
     <property name="text">
      <string>Register</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Clock</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

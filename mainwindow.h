@@ -27,6 +27,8 @@ private slots:
 
     void on_Register_pressed();
 
+    void show_time();
+
 private:
     Ui::MainWindow *ui;
 };
