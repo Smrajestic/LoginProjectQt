@@ -39,7 +39,7 @@ QString strImena, strGesla;
 
 int getUser()
 {
-    QFile dat("C:/imena.txt");
+    QFile dat("C:/Users/imena.txt");
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
     while (!in.atEnd()) {
@@ -150,5 +150,4 @@ void MainWindow::on_Register_pressed()
         QMessageBox::information(0,"Error","Za registriranje vpiši Uporabniško ime!");
     else if(ui->UserEdit->text() == ui->PassEdit->text())
         QMessageBox::information(0,"Error","Za registriranje uporabi različno Uporabniško ime, kot Geslo!");
-
     }
