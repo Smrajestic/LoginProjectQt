@@ -27,7 +27,7 @@ QString strImena, strGesla;
 
 int getUser()
 {
-    QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
+    QFile dat("C:/imena.txt");
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
     while (!in.atEnd()) {
@@ -37,7 +37,7 @@ int getUser()
 
 int getPass()
 {
-    QFile dat2("C:/Users/Trinet/Documents/LoginProject/gesla.txt");
+    QFile dat2("C:/gesla.txt");
     dat2.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat2);
     while (!in.atEnd()) {
@@ -112,8 +112,8 @@ void MainWindow::on_Register_pressed()
 {
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
-        QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
-        QFile dat2("C:/Users/Trinet/Documents/LoginProject/gesla.txt");
+        QFile dat("C:/imena.txt");
+        QFile dat2("C:/gesla.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
 
