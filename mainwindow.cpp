@@ -62,7 +62,11 @@ QString dekriptiraj(QString kriptiranoGeslo, int m)
 
 int getUser()
 {
+<<<<<<< HEAD
     QFile dat("/LoginProject/imena.txt");
+=======
+    QFile dat("C:/Users/imena.txt");
+>>>>>>> aa6c9cf8bc1fc1739e4b8b95210dbfc2882994be
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
           while (!in.atEnd()) {
@@ -177,5 +181,4 @@ void MainWindow::on_Register_pressed()
         QMessageBox::information(0,"Error","Za registriranje vpiši Uporabniško ime!");
     else if(ui->UserEdit->text() == ui->PassEdit->text())
         QMessageBox::information(0,"Error","Za registriranje uporabi različno Uporabniško ime, kot Geslo!");
-
     }
