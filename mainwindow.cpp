@@ -62,7 +62,7 @@ QString dekriptiraj(QString kriptiranoGeslo, int m)
 
 int getUser()
 {
-    QFile dat("/LoginProject/imena.txt");
+    QFile dat("C:/Users/XXXXX/Documents/LoginProject/imena.txt");
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
           while (!in.atEnd()) {
@@ -73,7 +73,7 @@ int getUser()
 
 int getPass()
 {
-    QFile dat2("/LoginProject/gesla.txt");
+    QFile dat2("C:/Users/XXXXX/Documents/LoginProject/gesla.txt");
     dat2.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat2);
     while (!in.atEnd()) {
@@ -150,8 +150,8 @@ void MainWindow::on_Register_pressed()
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
         QString strImena, strGesla, kriptiranoGeslo, dekriptiranoGeslo;
-        QFile dat("/LoginProject/imena.txt");
-        QFile dat2("/LoginProject/gesla.txt");
+        QFile dat("C:/Users/XXXXX/Documents/LoginProject/imena.txt");
+        QFile dat2("C:/Users/XXXXX/Documents/LoginProject/gesla.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
         int m=strGesla.length();
