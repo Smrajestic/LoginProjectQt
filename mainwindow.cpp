@@ -7,6 +7,7 @@
 #include "QDebug"
 #include "QDateTime"
 #include "QTimer"
+#include "algorithm"
 
 using namespace std;
 
@@ -34,27 +35,50 @@ MainWindow::~MainWindow()
 
 int loggedin=0;
 
-QString user="12345", pass="12345";
-QString strImena, strGesla;
+QString strGesla, user="12345", pass="12345";
+
+int m=strGesla.length();
+
+QString kriptiraj(QString strGesla)
+{
+    QString kript, temp, temp2;
+    temp=strGesla.mid(1,3);
+    temp2=strGesla.mid(2,2);
+    strGesla.remove(1,3);
+    kript=temp2+strGesla+temp;
+    return kript;
+}
+
+QString dekriptiraj(QString kriptiranoGeslo, int m)
+{
+    QString odkript, temp;
+    kriptiranoGeslo.remove(0,2);
+    temp=kriptiranoGeslo.right(3);
+    int n=m-3;
+    kriptiranoGeslo.remove(n,3);
+    odkript=kriptiranoGeslo.insert(1,temp);
+    return odkript;
+}
 
 int getUser()
 {
-    QFile dat("C:/imena.txt");
+    QFile dat("/LoginProject/imena.txt");
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
-    while (!in.atEnd()) {
-        user = in.readLine();
-}
+          while (!in.atEnd()) {
+              user = in.readLine();
+      }
     return 0;
 }
 
 int getPass()
 {
-    QFile dat2("C:/gesla.txt");
+    QFile dat2("/LoginProject/gesla.txt");
     dat2.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat2);
     while (!in.atEnd()) {
         pass = in.readLine();
+        kriptiraj(pass);
 }
     return 0;
 }
@@ -67,7 +91,7 @@ void MainWindow::on_LogIn_clicked()
     getPass();
     if(loggedin==0)
         {
-        if(ui->UserEdit->text() == user && ui->PassEdit->text() == pass)
+        if(ui->UserEdit->text() == user && ui->PassEdit->text() == pass || (ui->PassEdit->text() == dekriptiraj(pass,m)))
             {
             ui->UserLabel->hide();
             ui->UserEdit->hide();
@@ -121,15 +145,18 @@ void MainWindow::on_pushButton_clicked()
         }
         msgBox.warning(this, tr("Opomba"), s);
     }
-
 void MainWindow::on_Register_pressed()
 {
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
-        QFile dat("C:/imena.txt");
-        QFile dat2("C:/gesla.txt");
+        QString strImena, strGesla, kriptiranoGeslo, dekriptiranoGeslo;
+        QFile dat("/LoginProject/imena.txt");
+        QFile dat2("/LoginProject/gesla.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
+        int m=strGesla.length();
+        kriptiranoGeslo=kriptiraj(strGesla);
+        dekriptiranoGeslo=dekriptiraj(kriptiranoGeslo, m);
 
        try {
             dat.open(QIODevice::Append | QFile::Text);
@@ -137,7 +164,7 @@ void MainWindow::on_Register_pressed()
             QTextStream out(&dat);
             out << strImena + "\n";
             QTextStream out2(&dat2);
-            out2 << strGesla + "\n";
+            out2 << kriptiranoGeslo + "\n";
         }
         catch(const exception& e) {
             QMessageBox::critical(0,"Error",e.what());
