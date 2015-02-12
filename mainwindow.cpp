@@ -62,11 +62,7 @@ QString dekriptiraj(QString kriptiranoGeslo, int m)
 
 int getUser()
 {
-<<<<<<< HEAD
     QFile dat("/LoginProject/imena.txt");
-=======
-    QFile dat("C:/Users/imena.txt");
->>>>>>> aa6c9cf8bc1fc1739e4b8b95210dbfc2882994be
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
           while (!in.atEnd()) {
