@@ -1,7 +1,7 @@
 # LoginProjectQt
 ### [WIP] Language: Slovene ~ Fork/Star for english translation :P
 
-Za uporabo na drugih racunalnikih se:
+Za uporabo na drugih računalnikih se:
 
 -spremeni Output .txt datotek (kamorkoli)
 
