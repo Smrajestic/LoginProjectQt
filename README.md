@@ -1,5 +1,5 @@
 # LoginProjectQt
-### [WIP] Language: Slovene ~ Fork for english translation :P
+### [WIP] Language: Slovene ~ Fork/Star for english translation :P
 
 Za uporabo na drugih racunalnikih se:
 
