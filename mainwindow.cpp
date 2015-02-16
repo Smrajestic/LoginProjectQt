@@ -35,9 +35,7 @@ MainWindow::~MainWindow()
 
 int loggedin=0;
 
-QString strGesla, user="12345", pass="12345";
-
-int m=strGesla.length();
+QString temp, user, pass;
 
 QString kriptiraj(QString strGesla)
 {
@@ -49,49 +47,46 @@ QString kriptiraj(QString strGesla)
     return kript;
 }
 
-QString dekriptiraj(QString kriptiranoGeslo, int m)
+QString dekriptiraj(QString kriptiranoGeslo, int faktor)
 {
     QString odkript, temp;
     kriptiranoGeslo.remove(0,2);
     temp=kriptiranoGeslo.right(3);
-    int n=m-3;
+    int n=faktor-3;
     kriptiranoGeslo.remove(n,3);
     odkript=kriptiranoGeslo.insert(1,temp);
     return odkript;
 }
 
-int getUser()
+int checkLogin(QString username, QString password)
 {
-    QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
+    if (username != "" && password != "") {
+    QFile dat("C:/Users/Trinet/Documents/LoginProject/skupno.txt");
     dat.open(QIODevice::ReadOnly | QFile::Text);
     QTextStream in(&dat);
-          while (!in.atEnd()) {
-              user = in.readLine();
+      while (!in.atEnd()) {
+         temp = in.readLine();
+         user = temp.section("#",0,0);
+         pass = temp.section("#",1,1);
+
+         if (username == user) {
+             pass = dekriptiraj(pass, password.length());
+             if (password == pass) {
+                 return 1;
+             }
+         }
       }
+    }
     return 0;
 }
-
-int getPass()
-{
-    QFile dat2("C:/Users/Trinet/Documents/LoginProject/gesla.txt");
-    dat2.open(QIODevice::ReadOnly | QFile::Text);
-    QTextStream in(&dat2);
-    while (!in.atEnd()) {
-        pass = in.readLine();
-        kriptiraj(pass);
-}
-    return 0;
-}
-
 
 void MainWindow::on_LogIn_clicked()
 {
     QMessageBox msgBox;
-    getUser();
-    getPass();
     if(loggedin==0)
         {
-        if(ui->UserEdit->text() == user && ui->PassEdit->text() == pass || (ui->PassEdit->text() == dekriptiraj(pass,m)))
+        loggedin = checkLogin(ui->UserEdit->text(),ui->PassEdit->text());
+        if(loggedin==1)
             {
             ui->UserLabel->hide();
             ui->UserEdit->hide();
@@ -101,12 +96,10 @@ void MainWindow::on_LogIn_clicked()
             ui->Label->setText("Dobrodošli!");
             ui->UserEdit->clear();
             ui->PassEdit->clear();
-            loggedin=1;
         }
         else
             {
             msgBox.warning(this, tr("Warning!"), tr("Napačno uporabniško ime ali geslo!"));
-            QMessageBox::information(0,"Username - Password",user + " " + dekriptiraj(pass,m));
         }
     }
     else
@@ -150,28 +143,23 @@ void MainWindow::on_Register_pressed()
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
         QString strImena, strGesla, kriptiranoGeslo, dekriptiranoGeslo;
-        QFile dat("C:/Users/Trinet/Documents/LoginProject/imena.txt");
-        QFile dat2("C:/Users/Trinet/Documents/LoginProject/gesla.txt");
+        QFile dat("C:/Users/Trinet/Documents/LoginProject/skupno.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
-        int m=strGesla.length();
         kriptiranoGeslo=kriptiraj(strGesla);
-        dekriptiranoGeslo=dekriptiraj(kriptiranoGeslo, m);
+        dekriptiranoGeslo=dekriptiraj(kriptiranoGeslo, strGesla.length());
 
        try {
             dat.open(QIODevice::Append | QFile::Text);
-            dat2.open(QIODevice::Append | QFile::Text);
             QTextStream out(&dat);
-            out << strImena + "\n";
-            QTextStream out2(&dat2);
-            out2 << kriptiranoGeslo + "\n";
+            out << strImena + "#";
+            out << kriptiranoGeslo + "\n";
         }
         catch(const exception& e) {
             QMessageBox::critical(0,"Error",e.what());
         };
         dat.flush();
         dat.close();
-        dat2.close();
     }
     else if(ui->UserEdit->text()=="")
         QMessageBox::information(0,"Error","Za registriranje vpiši Uporabniško ime!");
