@@ -1,12 +1,12 @@
 # LoginProjectQt
-### [WIP]
+### [WIP] Language: Slovene ~ Fork for english translation :P
 
 Za uporabo na drugih racunalnikih se:
 
 -spremeni Output .txt datotek (kamorkoli)
 
--izbriöe LoginProject.pro.user (ce ga ni, toliko bolje)
---se sam naredi, ko se program zaûene
+-izbri≈°e LoginProject.pro.user (ce ga ni, toliko bolje)
+--se sam naredi, ko se program za≈æene
 
 -za zagon programa se klikne na LoginProject.pro
 
