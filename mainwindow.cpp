@@ -121,9 +121,9 @@ void MainWindow::on_pushButton_clicked()
     }
 void MainWindow::on_Register_pressed()
 {
+    QString strImena, strGesla;
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
-        QString strImena, strGesla;
         QFile dat("C:/Users/Trinet/Documents/LoginProject/skupno.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
