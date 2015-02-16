@@ -8,6 +8,8 @@
 #include "QDateTime"
 #include "QTimer"
 #include "algorithm"
+#include "QCryptographicHash"
+#include "QByteArray"
 
 using namespace std;
 
@@ -37,7 +39,7 @@ int loggedin=0;
 
 QString temp, user, pass;
 
-QString kriptiraj(QString strGesla)
+/*QString kriptiraj(QString strGesla)
 {
     QString kript, temp, temp2;
     temp=strGesla.mid(1,3);
@@ -57,7 +59,7 @@ QString dekriptiraj(QString kriptiranoGeslo, int faktor)
     odkript=kriptiranoGeslo.insert(1,temp);
     return odkript;
 }
-
+*/
 int checkLogin(QString username, QString password)
 {
     if (username != "" && password != "") {
@@ -70,8 +72,8 @@ int checkLogin(QString username, QString password)
          pass = temp.section("#",1,1);
 
          if (username == user) {
-             pass = dekriptiraj(pass, password.length());
-             if (password == pass) {
+             //pass = dekriptiraj(pass, password.length());
+             if (QString(QCryptographicHash::hash((password.toUtf8()),QCryptographicHash::Md5).toHex()) == pass) {
                  return 1;
              }
          }
@@ -93,13 +95,14 @@ void MainWindow::on_LogIn_clicked()
             ui->PassLabel->hide();
             ui->PassEdit->hide();
             ui->LogIn->setText("ReLog");
-            ui->Label->setText("Dobrodošli!");
+            ui->Label->setText("Dobrodošli");
             ui->UserEdit->clear();
             ui->PassEdit->clear();
         }
         else
             {
             msgBox.warning(this, tr("Warning!"), tr("Napačno uporabniško ime ali geslo!"));
+            msgBox.warning(this, tr("Opomba"), pass);
         }
     }
     else
@@ -142,18 +145,18 @@ void MainWindow::on_Register_pressed()
 {
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
-        QString strImena, strGesla, kriptiranoGeslo, dekriptiranoGeslo;
+        QString strImena, strGesla; //kriptiranoGeslo, dekriptiranoGeslo
         QFile dat("C:/Users/Trinet/Documents/LoginProject/skupno.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
-        kriptiranoGeslo=kriptiraj(strGesla);
-        dekriptiranoGeslo=dekriptiraj(kriptiranoGeslo, strGesla.length());
+        //kriptiranoGeslo=kriptiraj(strGesla);
+        //dekriptiranoGeslo=dekriptiraj(kriptiranoGeslo, strGesla.length());
 
        try {
             dat.open(QIODevice::Append | QFile::Text);
             QTextStream out(&dat);
             out << strImena + "#";
-            out << kriptiranoGeslo + "\n";
+            out << QString(QCryptographicHash::hash((strGesla.toUtf8()),QCryptographicHash::Md5).toHex()) + "\n";
         }
         catch(const exception& e) {
             QMessageBox::critical(0,"Error",e.what());

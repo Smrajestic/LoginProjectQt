@@ -489,16 +489,16 @@
    <widget class="QLabel" name="Label">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>10</x>
       <y>100</y>
-      <width>291</width>
+      <width>361</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Verdana</family>
-      <pointsize>26</pointsize>
+      <pointsize>8</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
