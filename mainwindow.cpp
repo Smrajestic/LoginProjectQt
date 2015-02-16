@@ -39,27 +39,6 @@ int loggedin=0;
 
 QString temp, user, pass;
 
-/*QString kriptiraj(QString strGesla)
-{
-    QString kript, temp, temp2;
-    temp=strGesla.mid(1,3);
-    temp2=strGesla.mid(2,2);
-    strGesla.remove(1,3);
-    kript=temp2+strGesla+temp;
-    return kript;
-}
-
-QString dekriptiraj(QString kriptiranoGeslo, int faktor)
-{
-    QString odkript, temp;
-    kriptiranoGeslo.remove(0,2);
-    temp=kriptiranoGeslo.right(3);
-    int n=faktor-3;
-    kriptiranoGeslo.remove(n,3);
-    odkript=kriptiranoGeslo.insert(1,temp);
-    return odkript;
-}
-*/
 int checkLogin(QString username, QString password)
 {
     if (username != "" && password != "") {
@@ -72,7 +51,6 @@ int checkLogin(QString username, QString password)
          pass = temp.section("#",1,1);
 
          if (username == user) {
-             //pass = dekriptiraj(pass, password.length());
              if (QString(QCryptographicHash::hash((password.toUtf8()),QCryptographicHash::Md5).toHex()) == pass) {
                  return 1;
              }
@@ -145,12 +123,10 @@ void MainWindow::on_Register_pressed()
 {
     if(ui->UserEdit->text() != ui->PassEdit->text() && ui->UserEdit->text()!="")
         {
-        QString strImena, strGesla; //kriptiranoGeslo, dekriptiranoGeslo
+        QString strImena, strGesla;
         QFile dat("C:/Users/Trinet/Documents/LoginProject/skupno.txt");
         strImena=ui->UserEdit->text();
         strGesla=ui->PassEdit->text();
-        //kriptiranoGeslo=kriptiraj(strGesla);
-        //dekriptiranoGeslo=dekriptiraj(kriptiranoGeslo, strGesla.length());
 
        try {
             dat.open(QIODevice::Append | QFile::Text);
