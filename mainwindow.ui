@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>385</width>
-    <height>394</height>
+    <width>382</width>
+    <height>404</height>
    </rect>
   </property>
   <property name="palette">
@@ -425,8 +425,10 @@
     </disabled>
    </palette>
   </property>
-  <property name="mouseTracking">
-   <bool>false</bool>
+  <property name="font">
+   <font>
+    <family>Terminal</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Login Project</string>
@@ -447,17 +449,18 @@
    <widget class="QLabel" name="UserLabel">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>60</y>
-      <width>101</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Terminal</family>
-      <pointsize>16</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>18</pointsize>
       <weight>75</weight>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
@@ -468,17 +471,18 @@
    <widget class="QLabel" name="PassLabel">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>150</y>
-      <width>101</width>
+      <x>40</x>
+      <y>180</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Terminal</family>
-      <pointsize>16</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>18</pointsize>
       <weight>75</weight>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
@@ -489,16 +493,16 @@
    <widget class="QLabel" name="Label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>100</y>
-      <width>361</width>
+      <x>50</x>
+      <y>110</y>
+      <width>291</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Verdana</family>
-      <pointsize>8</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>36</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -558,7 +562,11 @@
     </property>
     <property name="font">
      <font>
+      <family>Times New Roman</family>
       <pointsize>11</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="text">
@@ -578,7 +586,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>150</y>
+      <y>180</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -622,7 +630,11 @@
     </property>
     <property name="font">
      <font>
+      <family>Times New Roman</family>
       <pointsize>11</pointsize>
+      <weight>75</weight>
+      <italic>true</italic>
+      <bold>true</bold>
      </font>
     </property>
     <property name="maxLength">
@@ -638,9 +650,9 @@
    <widget class="QPushButton" name="LogIn">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>200</y>
-      <width>131</width>
+      <x>90</x>
+      <y>240</y>
+      <width>201</width>
       <height>41</height>
      </rect>
     </property>
@@ -710,107 +722,22 @@
     </property>
     <property name="font">
      <font>
-      <family>GungsuhChe</family>
-      <pointsize>14</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>LogIn</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>230</y>
-      <width>81</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>0</red>
-          <green>122</green>
-          <blue>179</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>6</red>
-          <green>147</green>
-          <blue>142</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>0</red>
-          <green>122</green>
-          <blue>179</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>6</red>
-          <green>147</green>
-          <blue>142</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>25</red>
-          <green>34</green>
-          <blue>63</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>25</red>
-          <green>34</green>
-          <blue>63</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
-    <property name="font">
-     <font>
-      <family>GungsuhChe</family>
-      <pointsize>26</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>MSG</string>
+     <string>Login</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Register">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>260</y>
-      <width>131</width>
+      <x>90</x>
+      <y>310</y>
+      <width>101</width>
       <height>41</height>
      </rect>
     </property>
@@ -880,9 +807,10 @@
     </property>
     <property name="font">
      <font>
-      <family>GungsuhChe</family>
-      <pointsize>14</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
       <weight>75</weight>
+      <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
@@ -893,16 +821,16 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>20</y>
-      <width>171</width>
-      <height>31</height>
+      <x>90</x>
+      <y>10</y>
+      <width>211</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Segoe Print</family>
-      <pointsize>18</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>24</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -914,24 +842,102 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="kriptTip">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>310</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>122</green>
+          <blue>179</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>6</red>
+          <green>147</green>
+          <blue>142</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>0</red>
+          <green>122</green>
+          <blue>179</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>6</red>
+          <green>147</green>
+          <blue>142</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>25</red>
+          <green>34</green>
+          <blue>63</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>25</red>
+          <green>34</green>
+          <blue>63</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>MD5</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>385</width>
+     <width>382</width>
      <height>21</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

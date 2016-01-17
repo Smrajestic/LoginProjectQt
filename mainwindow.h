@@ -23,11 +23,11 @@ private slots:
 
     void on_UserEdit_returnPressed();
     
-    void on_pushButton_clicked();
-
     void on_Register_pressed();
 
     void show_time();
+
+    void on_kriptTip_pressed();
 
 private:
     Ui::MainWindow *ui;
