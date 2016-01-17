@@ -1,15 +1,13 @@
 # LoginProjectQt
-### [WIP] Language: Slovene ~ Fork/Star for english translation :P
+### [WIP]
 
 Za uporabo na drugih računalnikih se:
 
--spremeni Output .txt datotek (kamorkoli)
+-spremeni Output ".txt" datotek
 
 -izbriše LoginProject.pro.user (ce ga ni, toliko bolje)
 --se sam naredi, ko se program zažene
 
--za zagon programa se klikne na LoginProject.pro
-
--za zagon se uporabi:
+-za zagon sem uporabil:
 --"Qt Creator 3.3.0 (opensource)"
 --"Based on Qt 5.4.0 (MSVC 2010, 32 bit)"
